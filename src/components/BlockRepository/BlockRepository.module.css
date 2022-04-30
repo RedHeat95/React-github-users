@@ -1,0 +1,14 @@
+.blockRepository {
+  flex: 1;
+  padding: 1.8rem 3rem 2rem;
+}
+
+.title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 130%;
+  color: #000000;
+  margin-bottom: 1.8rem;
+}

@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  background-color: #0064eb;
+}
+
+.headerLogo {
+  margin-right: 1.5rem;
+}
+
+.headerSearch {
+  display: flex;
+  align-items: center;
+  max-width: 31rem;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: #ffffff;
+  border-radius: 6px;
+}
+
+.searchImg {
+  margin-right: 0.7rem;
+}
+
+.searchInput {
+  width: 100%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #000000;
+  outline: none;
+  border: none;
+}

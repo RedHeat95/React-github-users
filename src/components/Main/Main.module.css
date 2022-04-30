@@ -1,0 +1,11 @@
+.main {
+  display: flex;
+  flex: 1;
+  background-color: #e5e5e5;
+}
+
+.mainWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+}
