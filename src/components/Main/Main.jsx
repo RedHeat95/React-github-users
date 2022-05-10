@@ -4,20 +4,30 @@ import { SearchUsers } from "../SearchUsers/SearchUsers";
 import { FoundUsers } from "../FoundUsers/FoundUsers";
 import { BlockUser } from "../BlockUser/BlockUser";
 import { BlockRepository } from "../BlockRepository/BlockRepository";
-import { EmptyRepository } from "../EmptyRepository/EmptyRepository";
-import { Preloader } from "../Preloader/Preloader";
+import { useSelector } from "react-redux";
 
 export const Main = () => {
+  const users = useSelector((state) => state.users.items);
+  const isSearch = useSelector((state) => state.users.isSearch);
+
   return (
     <div className={styles.main}>
       <Container>
         <div className={styles.mainWrapper}>
-          {/* <SearchUsers /> */}
-          {/* <FoundUsers /> */}
-          <BlockUser />
-          <BlockRepository />
-          {/* <EmptyRepository /> */}
-          {/* <Preloader /> */}
+          {isSearch ? (
+            <>
+              {users.length === 0 ? (
+                <FoundUsers />
+              ) : (
+                <>
+                  <BlockUser />
+                  <BlockRepository />
+                </>
+              )}
+            </>
+          ) : (
+            <SearchUsers />
+          )}
         </div>
       </Container>
     </div>

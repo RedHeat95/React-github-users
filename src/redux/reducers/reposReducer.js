@@ -11,7 +11,15 @@ export const reposReducer = (state = defaultState, action) => {
       return {
         ...state,
         items: action.payload,
+        isFetching: true,
       };
+
+    case ACTIONS.SET_IS_FETCHING:
+      return {
+        ...state,
+        isFetching: action.payload,
+      };
+
     default:
       return state;
   }
