@@ -31,8 +31,8 @@ export const Main = () => {
   const [endOffset, setEndOffset] = useState(0);
 
   useEffect(() => {
-    setEndOffset(itemOffset + perPage);
     setCurrentItems(repos);
+    setEndOffset(itemOffset + perPage);
     setPageCount(Math.ceil(totalCount / perPage));
     dispatch(getRepos(searchValue, perPage, currentPage));
   }, [totalCount, repos, itemOffset, perPage, endOffset, currentPage]);
@@ -44,6 +44,7 @@ export const Main = () => {
   const searchHandler = (e) => {
     if (e.key === "Enter") {
       dispatch(setCurrentPage(1));
+      setItemOffset(0);
       dispatch(setIsSearch(true));
       dispatch(getUsers(searchValue));
       dispatch(getRepos(searchValue, perPage, currentPage));

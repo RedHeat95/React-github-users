@@ -19,7 +19,13 @@ export const setIsNotFound = (bool) => ({
 export const getUsers = (username) => {
   return async (dispatch) => {
     const response = await axios.get(
-      `https://api.github.com/users/${username}`
+      `https://api.github.com/users/${username}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "token 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",
+        },
+      }
     );
     dispatch(setUsers(response.data));
   };

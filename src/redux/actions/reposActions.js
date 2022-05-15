@@ -25,7 +25,7 @@ export const getRepos = (username, perPage, currentPage) => {
       {
         method: "GET",
         headers: {
-          Authorization: "token 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",
+          Authorization: "token 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",
         },
       }
     );
