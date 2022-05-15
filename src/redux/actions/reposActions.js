@@ -1,5 +1,6 @@
 import axios from "axios";
 import { ACTIONS } from "../constants";
+import { setIsNotFound } from "./usersActions";
 
 const setRepos = (repos) => ({
   type: ACTIONS.SET_REPOS,
@@ -11,11 +12,22 @@ const setIsFetching = (bool) => ({
   payload: bool,
 });
 
-export const getRepos = (username) => {
+export const setCurrentPage = (page) => ({
+  type: ACTIONS.SET_CURRENT_PAGE,
+  payload: page,
+});
+
+export const getRepos = (username, perPage, currentPage) => {
   return async (dispatch) => {
-    dispatch(setIsFetching(false));
+    dispatch(setIsFetching(true));
     const response = await axios.get(
-      `https://api.github.com/users/${username}/repos?type=all&per_page=100&page=1`
+      `https://api.github.com/users/${username}/repos?per_page=${perPage}&page=${currentPage}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "token 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",
+        },
+      }
     );
     dispatch(setRepos(response.data));
   };

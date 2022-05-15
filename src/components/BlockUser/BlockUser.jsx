@@ -1,19 +1,12 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import styles from "./BlockUser.module.css";
-import { getUsers } from "../../redux/actions/usersActions";
 
 let followers = 0;
 let following = 0;
 
 export const BlockUser = () => {
-  const dispatch = useDispatch();
   const users = useSelector((state) => state.users.items);
-
-  useEffect(() => {
-    dispatch(getUsers());
-  }, []);
 
   if (users.followers >= 1000) {
     followers = (users.followers / 1000).toFixed(1) + "k";
