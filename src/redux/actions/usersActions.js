@@ -6,6 +6,11 @@ const setUsers = (users) => ({
   payload: users,
 });
 
+export const setUsername = (username) => ({
+  type: ACTIONS.SET_USERNAME,
+  payload: username,
+});
+
 export const setIsSearch = (bool) => ({
   type: ACTIONS.SET_IS_SEARCH,
   payload: bool,
@@ -23,7 +28,7 @@ export const getUsers = (username) => {
       {
         method: "GET",
         headers: {
-          Authorization: "token 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",
+          Authorization: "token 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",
         },
       }
     );

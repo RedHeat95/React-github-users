@@ -24,9 +24,16 @@ export const BlockUser = () => {
     <div className={styles.blockuser}>
       <img className={styles.avatar} src={users.avatar_url} alt="avatar" />
       <p className={styles.avatarname}>{users.name}</p>
-      <a className={styles.username} href={users.html_url} target="_blank">
-        {users.login}
-      </a>
+      <p>
+        <a
+          className={styles.username}
+          href={users.html_url}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {users.login}
+        </a>
+      </p>
       <div className={styles.userInfo}>
         <p className={styles.infoText}>
           <img

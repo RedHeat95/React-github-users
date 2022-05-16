@@ -2,6 +2,7 @@ import { ACTIONS } from "../constants";
 
 const defaultState = {
   items: [],
+  username: "",
   isSearch: false,
   isNotFound: false,
   totalCount: 0,
@@ -14,6 +15,12 @@ export const usersReducer = (state = defaultState, action) => {
         ...state,
         items: action.payload,
         totalCount: action.payload.public_repos,
+      };
+
+    case ACTIONS.SET_USERNAME:
+      return {
+        ...state,
+        username: action.payload,
       };
 
     case ACTIONS.SET_IS_SEARCH:

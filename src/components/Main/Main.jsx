@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 import ReactPaginate from "react-paginate";
 
-import { getUsers, setIsSearch } from "../../redux/actions/usersActions";
+import {
+  getUsers,
+  setUsername,
+  setIsSearch,
+} from "../../redux/actions/usersActions";
 import { getRepos, setCurrentPage } from "../../redux/actions/reposActions";
 
 import styles from "./Main.module.css";
@@ -17,6 +21,7 @@ import { CardReposiroty } from "../CardRepository/CardRepository";
 
 export const Main = () => {
   const dispatch = useDispatch();
+  const username = useSelector((state) => state.users.username);
   const totalCount = useSelector((state) => state.users.totalCount);
   // const isSearch = useSelector((state) => state.users.isSearch);
   // const isNotFound = useSelector((state) => state.users.isNotFound);
@@ -25,17 +30,19 @@ export const Main = () => {
   const currentPage = useSelector((state) => state.repos.currentPage);
 
   const [searchValue, setSearchValue] = useState("");
-  const [currentItems, setCurrentItems] = useState(repos);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const [endOffset, setEndOffset] = useState(0);
 
   useEffect(() => {
-    setCurrentItems(repos);
-    setEndOffset(itemOffset + perPage);
+    if (itemOffset + perPage > totalCount) {
+      setEndOffset(totalCount);
+    } else {
+      setEndOffset(itemOffset + perPage);
+    }
     setPageCount(Math.ceil(totalCount / perPage));
-    dispatch(getRepos(searchValue, perPage, currentPage));
-  }, [totalCount, repos, itemOffset, perPage, endOffset, currentPage]);
+    dispatch(getRepos(username, perPage, currentPage));
+  }, [dispatch, username, totalCount, itemOffset, perPage, currentPage]);
 
   const inputOnChange = (e) => {
     setSearchValue(e.target.value.toLowerCase());
@@ -43,11 +50,13 @@ export const Main = () => {
 
   const searchHandler = (e) => {
     if (e.key === "Enter") {
+      dispatch(setUsername(searchValue));
       dispatch(setCurrentPage(1));
       setItemOffset(0);
       dispatch(setIsSearch(true));
       dispatch(getUsers(searchValue));
-      dispatch(getRepos(searchValue, perPage, currentPage));
+      dispatch(getRepos(username, perPage, currentPage));
+      setSearchValue("");
     }
   };
 
@@ -92,7 +101,7 @@ export const Main = () => {
             <div className={styles.blockRepository}>
               <p className={styles.title}>Repositories ({totalCount})</p>
 
-              {currentItems.map((repo) => (
+              {repos.map((repo) => (
                 <CardReposiroty repo={repo} key={repo.id} />
               ))}
 
