@@ -1,55 +1,64 @@
-// import { useState, useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-// import styles from "./Header.module.css";
-// import { getUsers } from "../../redux/actions/usersActions";
-// import { getRepos, setCurrentPage } from "../../redux/actions/reposActions";
-// import { Container } from "../Container/Container";
+import { getUsers, setUsername } from "../../redux/actions/usersActions";
+import {
+  getRepos,
+  setPageNumder,
+  setFirstItem,
+} from "../../redux/actions/reposActions";
 
-// export const Header = () => {
-//   const dispatch = useDispatch();
-//   const currentPage = useSelector((state) => state.repos.currentPage);
-//   const perPage = useSelector((state) => state.repos.perPage);
-//   const [searchValue, setSearchValue] = useState("");
+import styles from "./Header.module.css";
+import { Container } from "../Container/Container";
 
-//   useEffect(() => {
-//     dispatch(getRepos(searchValue, currentPage, perPage));
-//   }, [currentPage]);
+export const Header = () => {
+  const dispatch = useDispatch();
+  const username = useSelector((state) => state.users.username);
+  const perPage = useSelector((state) => state.repos.perPage);
+  const pageNumber = useSelector((state) => state.repos.pageNumber);
 
-//   const searchHandler = (e) => {
-//     if (e.key === "Enter") {
-//       dispatch(setCurrentPage(1));
-//       dispatch(getUsers(searchValue));
-//       dispatch(getRepos(searchValue, currentPage, perPage));
-//       setSearchValue("");
-//     }
-//   };
+  const [searchValue, setSearchValue] = useState("");
 
-//   return (
-//     <div className={styles.header}>
-//       <Container>
-//         <img
-//           className={styles.headerLogo}
-//           src="./assets/images/logo.svg"
-//           alt="logo"
-//         />
+  const inputOnChange = (e) => {
+    setSearchValue(e.target.value.toLowerCase());
+  };
 
-//         <div className={styles.headerSearch}>
-//           <img
-//             className={styles.searchImg}
-//             src="./assets/images/searchInput.svg"
-//             alt="search"
-//           />
-//           <input
-//             className={styles.searchInput}
-//             value={searchValue}
-//             onChange={(e) => setSearchValue(e.target.value)}
-//             onKeyDown={searchHandler}
-//             type="text"
-//             placeholder="Enter GitHub username"
-//           />
-//         </div>
-//       </Container>
-//     </div>
-//   );
-// };
+  const searchHandler = (e) => {
+    if (e.key === "Enter") {
+      dispatch(setPageNumder(1));
+      dispatch(setFirstItem(0));
+      dispatch(setUsername(searchValue));
+      dispatch(getUsers(searchValue));
+      dispatch(getRepos(username, perPage, pageNumber));
+      setSearchValue("");
+    }
+  };
+
+  return (
+    <div className={styles.header}>
+      <Container>
+        <img
+          className={styles.headerLogo}
+          src="./assets/images/logo.svg"
+          alt="logo"
+        />
+
+        <div className={styles.headerSearch}>
+          <img
+            className={styles.searchImg}
+            src="./assets/images/searchInput.svg"
+            alt="search"
+          />
+          <input
+            className={styles.searchInput}
+            value={searchValue}
+            onChange={inputOnChange}
+            onKeyDown={searchHandler}
+            type="text"
+            placeholder="Enter GitHub username"
+          />
+        </div>
+      </Container>
+    </div>
+  );
+};

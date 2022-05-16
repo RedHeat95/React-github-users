@@ -1,4 +1,4 @@
-.emptyRepository {
+.emptyState {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -8,11 +8,11 @@
   width: 100%;
 }
 
-.emptyRepositoryImg {
+.emptyStateImg {
   margin-bottom: 1.5rem;
 }
 
-.emptyRepositoryText {
+.emptyStateText {
   font-style: normal;
   font-weight: 400;
   font-size: 22px;

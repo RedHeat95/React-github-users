@@ -6,14 +6,9 @@ const setUsers = (users) => ({
   payload: users,
 });
 
-export const setUsername = (username) => ({
+export const setUsername = (string) => ({
   type: ACTIONS.SET_USERNAME,
-  payload: username,
-});
-
-export const setIsSearch = (bool) => ({
-  type: ACTIONS.SET_IS_SEARCH,
-  payload: bool,
+  payload: string,
 });
 
 export const setIsNotFound = (bool) => ({
@@ -23,15 +18,21 @@ export const setIsNotFound = (bool) => ({
 
 export const getUsers = (username) => {
   return async (dispatch) => {
-    const response = await axios.get(
-      `https://api.github.com/users/${username}`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: "token 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",
-        },
-      }
-    );
-    dispatch(setUsers(response.data));
+    try {
+      dispatch(setIsNotFound(false));
+      const response = await axios.get(
+        `https://api.github.com/users/${username}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: "token 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",
+          },
+        }
+      );
+
+      dispatch(setUsers(response.data));
+    } catch (e) {
+      dispatch(setIsNotFound(true));
+    }
   };
 };

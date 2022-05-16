@@ -9,7 +9,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <div className="App">
-        {/* <Header /> */}
+        <Header />
         <Main />
       </div>
     </Provider>

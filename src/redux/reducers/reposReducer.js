@@ -2,9 +2,12 @@ import { ACTIONS } from "../constants";
 
 const defaultState = {
   items: [],
-  isFetching: true,
-  currentPage: 1,
   perPage: 4,
+  pageNumber: 1,
+  pageCount: 0,
+  firstItem: 0,
+  lastItem: 0,
+  isFetching: false,
 };
 
 export const reposReducer = (state = defaultState, action) => {
@@ -22,10 +25,28 @@ export const reposReducer = (state = defaultState, action) => {
         isFetching: action.payload,
       };
 
-    case ACTIONS.SET_CURRENT_PAGE:
+    case ACTIONS.SET_PAGE_NUMBER:
       return {
         ...state,
-        currentPage: action.payload,
+        pageNumber: action.payload,
+      };
+
+    case ACTIONS.SET_PAGE_COUNT:
+      return {
+        ...state,
+        pageCount: action.payload,
+      };
+
+    case ACTIONS.SET_FIRST_ITEM:
+      return {
+        ...state,
+        firstItem: action.payload,
+      };
+
+    case ACTIONS.SET_LAST_ITEM:
+      return {
+        ...state,
+        lastItem: action.payload,
       };
 
     default:

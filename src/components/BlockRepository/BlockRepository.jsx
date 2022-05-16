@@ -1,49 +1,42 @@
-// import { useState, useEffect } from "react";
-// import { useSelector } from "react-redux";
-// import ReactPaginate from "react-paginate";
+import React from "react";
+import { useSelector } from "react-redux";
 
-// import styles from "./BlockRepository.module.css";
-// import { CardReposiroty } from "../CardRepository/CardRepository";
-// import { Preloader } from "../Preloader/Preloader";
-// import { EmptyRepository } from "../EmptyRepository/EmptyRepository";
+import styles from "./BlockRepository.module.css";
+import { CardReposiroty } from "../CardRepository/CardRepository";
+import { Pagination } from "../Pagination/Pagination";
+import { Preloader } from "../Preloader/Preloader";
+import { EmptyState } from "../EmptyState/EmptyState";
 
-// export const BlockRepository = () => {
-//   const isFetching = useSelector((state) => state.repos.isFetching);
+export const BlockRepository = () => {
+  const totalCount = useSelector((state) => state.users.totalCount);
+  const repos = useSelector((state) => state.repos.items);
+  const isFetching = useSelector((state) => state.repos.isFetching);
+  console.log(isFetching);
 
-//   return (
-//     <div className={styles.blockRepository}>
-//       <p className={styles.title}>Repositories ({totalCount})</p>
-//       {currentItems.map((repo) => (
-//         <CardReposiroty repo={repo} key={repo.id} />
-//       ))}
-//       <div className={styles.pagination}>
-//         <p className={styles.paginationText}>
-//           {itemOffset} - {endOffset} of {totalCount} items
-//         </p>
-//         <ReactPaginate
-//           containerClassName={styles.paginationContainer}
-//           previousClassName={styles.paginationPrevious}
-//           nextClassName={styles.paginationNext}
-//           activeClassName={styles.paginationActive}
-//           activeLinkClassName={styles.paginationActiveLink}
-//           previousLabel={
-//             <img src="./assets/images/arrowLeft.svg" alt="arrowLeft" />
-//           }
-//           breakLabel="..."
-//           nextLabel={
-//             <img src="./assets/images/arrowRight.svg" alt="arrowRight" />
-//           }
-//           pageCount={pageCount}
-//           marginPagesDisplayed="1"
-//           pageRangeDisplayed="2"
-//           onPageChange={handlePageClick}
-//         />
-//       </div>
-//     </div>
-//   );
-// };
-// if (itemOffset + perPage > totalCount) {
-//   return setEndOffset(totalCount);
-// } else {
+  return (
+    <>
+      {totalCount === 0 ? (
+        <EmptyState
+          image="./assets/images/empty.svg"
+          alt="empty"
+          text="Repository list is empty"
+        />
+      ) : (
+        <>
+          {isFetching ? (
+            <div className={styles.blockRepository}>
+              <p className={styles.title}>Repositories ({totalCount})</p>
 
-// }
+              {repos.map((repo) => (
+                <CardReposiroty repo={repo} key={repo.id} />
+              ))}
+              <Pagination />
+            </div>
+          ) : (
+            <Preloader />
+          )}
+        </>
+      )}
+    </>
+  );
+};
