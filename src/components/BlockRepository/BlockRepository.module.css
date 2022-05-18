@@ -1,4 +1,6 @@
 .blockRepository {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   padding: 1.8rem 3rem 2rem;
 }
@@ -10,4 +12,8 @@
   line-height: 130%;
   color: #000000;
   margin-bottom: 1.8rem;
+}
+
+.cards {
+  flex: 1;
 }

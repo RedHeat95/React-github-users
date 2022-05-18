@@ -33,16 +33,18 @@ const setIsFetching = (bool) => ({
 
 export const getRepos = (username, perPage, pageNumber) => {
   return async (dispatch) => {
-    dispatch(setIsFetching(true));
-    const response = await axios.get(
-      `https://api.github.com/users/${username}/repos?per_page=${perPage}&page=${pageNumber}`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: "token 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",
-        },
-      }
-    );
-    dispatch(setRepos(response.data));
+    try {
+      dispatch(setIsFetching(false));
+      const response = await axios.get(
+        `https://api.github.com/users/${username}/repos?per_page=${perPage}&page=${pageNumber}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: "token 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",
+          },
+        }
+      );
+      dispatch(setRepos(response.data));
+    } catch (e) {}
   };
 };

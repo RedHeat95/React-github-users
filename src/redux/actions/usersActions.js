@@ -11,7 +11,12 @@ export const setUsername = (string) => ({
   payload: string,
 });
 
-export const setIsNotFound = (bool) => ({
+const setIsSearch = (bool) => ({
+  type: ACTIONS.SET_IS_SEARCH,
+  payload: bool,
+});
+
+const setIsNotFound = (bool) => ({
   type: ACTIONS.SET_IS_NOT_FOUND,
   payload: bool,
 });
@@ -19,19 +24,20 @@ export const setIsNotFound = (bool) => ({
 export const getUsers = (username) => {
   return async (dispatch) => {
     try {
+      dispatch(setIsSearch(false));
       dispatch(setIsNotFound(false));
       const response = await axios.get(
         `https://api.github.com/users/${username}`,
         {
           method: "GET",
           headers: {
-            Authorization: "token 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",
+            Authorization: "token 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",
           },
         }
       );
-
       dispatch(setUsers(response.data));
     } catch (e) {
+      dispatch(setIsSearch(true));
       dispatch(setIsNotFound(true));
     }
   };

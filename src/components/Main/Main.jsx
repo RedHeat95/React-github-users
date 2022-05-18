@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 
 import styles from "./Main.module.css";
@@ -14,26 +13,28 @@ export const Main = () => {
 
   return (
     <div className={styles.main}>
-      <Container>
-        {isSearch ? (
-          <>
-            {isNotFound ? (
-              <EmptyState
-                image="./assets/images/user.svg"
-                alt="user"
-                text="User not found"
-              />
-            ) : (
-              <div className={styles.mainWrapper}>
-                <BlockUser />
-                <BlockRepository />
-              </div>
-            )}
-          </>
-        ) : (
-          <SearchUsers />
-        )}
-      </Container>
+      <div className={styles.mainWrraper}>
+        <Container>
+          {isSearch ? (
+            <>
+              {isNotFound === true ? (
+                <EmptyState
+                  image="./assets/images/user.svg"
+                  alt="user"
+                  text="User not found"
+                />
+              ) : (
+                <div className={styles.mainBlock}>
+                  <BlockUser />
+                  <BlockRepository />
+                </div>
+              )}
+            </>
+          ) : (
+            <SearchUsers />
+          )}
+        </Container>
+      </div>
     </div>
   );
 };

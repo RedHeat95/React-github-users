@@ -1,5 +1,3 @@
-import React from "react";
-
 import styles from "./EmptyState.module.css";
 
 export const EmptyState = ({ image, alt, text }) => {

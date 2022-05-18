@@ -16,12 +16,19 @@ export const usersReducer = (state = defaultState, action) => {
         items: action.payload,
         totalCount: action.payload.public_repos,
         isSearch: true,
+        isNotFound: false,
       };
 
     case ACTIONS.SET_USERNAME:
       return {
         ...state,
         username: action.payload,
+      };
+
+    case ACTIONS.SET_IS_SEARCH:
+      return {
+        ...state,
+        isSearch: action.payload,
       };
 
     case ACTIONS.SET_IS_NOT_FOUND:

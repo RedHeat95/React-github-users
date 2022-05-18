@@ -23,8 +23,9 @@ export const Pagination = () => {
   const lastItem = useSelector((state) => state.repos.lastItem);
 
   useEffect(() => {
-    dispatch(setPageCount(Math.ceil(totalCount / perPage)));
     dispatch(getRepos(username, perPage, pageNumber));
+    dispatch(setPageCount(Math.ceil(totalCount / perPage)));
+
     if (firstItem + perPage > totalCount) {
       dispatch(setLastItem(totalCount));
     } else {
@@ -60,6 +61,7 @@ export const Pagination = () => {
         marginPagesDisplayed="1"
         pageRangeDisplayed="2"
         onPageChange={handlePageClick}
+        disableInitialCallback={true}
       />
     </div>
   );

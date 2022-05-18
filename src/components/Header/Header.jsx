@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getUsers, setUsername } from "../../redux/actions/usersActions";
@@ -13,7 +13,6 @@ import { Container } from "../Container/Container";
 
 export const Header = () => {
   const dispatch = useDispatch();
-  const username = useSelector((state) => state.users.username);
   const perPage = useSelector((state) => state.repos.perPage);
   const pageNumber = useSelector((state) => state.repos.pageNumber);
 
@@ -24,12 +23,12 @@ export const Header = () => {
   };
 
   const searchHandler = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && searchValue !== "") {
       dispatch(setPageNumder(1));
       dispatch(setFirstItem(0));
       dispatch(setUsername(searchValue));
       dispatch(getUsers(searchValue));
-      dispatch(getRepos(username, perPage, pageNumber));
+      dispatch(getRepos(searchValue, perPage, pageNumber));
       setSearchValue("");
     }
   };

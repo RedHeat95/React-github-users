@@ -4,7 +4,14 @@
   background-color: #e5e5e5;
 }
 
-.mainWrapper {
+.mainWrraper {
+  display: flex;
+  max-height: 43.5rem;
+  height: 100%;
+  width: 100%;
+}
+
+.mainBlock {
   display: flex;
   flex-wrap: wrap;
   flex: 1;

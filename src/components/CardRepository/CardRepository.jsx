@@ -1,5 +1,3 @@
-import React from "react";
-
 import styles from "./CardRepository.module.css";
 
 export const CardReposiroty = (props) => {
