@@ -33,13 +33,7 @@ export const getUsers = (username) => {
       dispatch(setIsNotFound(false));
       dispatch(setIsFetching(false));
       const response = await axios.get(
-        `https://api.github.com/users/${username}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: "token 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",
-          },
-        }
+        `https://api.github.com/users/${username}`
       );
       dispatch(setUsers(response.data));
     } catch (e) {

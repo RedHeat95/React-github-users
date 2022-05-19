@@ -7,6 +7,7 @@ import { EmptyState } from "../EmptyState/EmptyState";
 import { BlockUser } from "../BlockUser/BlockUser";
 import { BlockRepository } from "../BlockRepository/BlockRepository";
 import { Preloader } from "../Preloader/Preloader";
+
 export const Main = () => {
   const isSearch = useSelector((state) => state.users.isSearch);
   const isNotFound = useSelector((state) => state.users.isNotFound);
