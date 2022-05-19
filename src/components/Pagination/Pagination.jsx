@@ -59,7 +59,6 @@ export const Pagination = () => {
         }
         pageCount={pageCount}
         marginPagesDisplayed="1"
-        pageRangeDisplayed="2"
         onPageChange={handlePageClick}
         disableInitialCallback={true}
       />

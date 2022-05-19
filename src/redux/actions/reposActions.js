@@ -40,7 +40,7 @@ export const getRepos = (username, perPage, pageNumber) => {
         {
           method: "GET",
           headers: {
-            Authorization: "token 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",
+            Authorization: "token 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",
           },
         }
       );
