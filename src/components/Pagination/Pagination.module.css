@@ -1,6 +1,7 @@
 .pagination {
   display: flex;
   justify-content: flex-end;
+  margin-right: 0.8rem;
 }
 
 .paginationText {
@@ -16,7 +17,6 @@
   display: flex;
   align-items: center;
   list-style: none;
-  margin-right: 0.8rem;
 }
 
 .paginationContainer > li {
@@ -43,4 +43,16 @@
 
 .paginationActiveLink {
   color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .pagination {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    max-width: 20rem;
+  }
+  .paginationText {
+    margin: 0 0.8rem 0.5rem 0;
+  }
 }

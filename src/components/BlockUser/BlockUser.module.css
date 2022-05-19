@@ -1,7 +1,6 @@
 .blockuser {
   flex: 1;
-  max-width: max-content;
-  padding: 2.4rem 3rem 3rem;
+  padding: 2.5rem 3rem 0 3.5rem;
 }
 
 .avatar {
@@ -31,7 +30,7 @@
 
 .userInfo {
   display: flex;
-  margin-top: 1.5rem;
+  margin: 1.5rem 0 3rem 0;
 }
 
 .infoText {
@@ -45,4 +44,10 @@
 
 .infoImg {
   margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .blockuser {
+    padding: 0;
+  }
 }

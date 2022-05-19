@@ -7,7 +7,6 @@ const defaultState = {
   pageCount: 0,
   firstItem: 0,
   lastItem: 0,
-  isFetching: false,
 };
 
 export const reposReducer = (state = defaultState, action) => {
@@ -16,13 +15,6 @@ export const reposReducer = (state = defaultState, action) => {
       return {
         ...state,
         items: action.payload,
-        isFetching: true,
-      };
-
-    case ACTIONS.SET_IS_FETCHING:
-      return {
-        ...state,
-        isFetching: action.payload,
       };
 
     case ACTIONS.SET_PAGE_NUMBER:

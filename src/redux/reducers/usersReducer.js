@@ -6,6 +6,7 @@ const defaultState = {
   totalCount: 0,
   isSearch: false,
   isNotFound: false,
+  isFetching: false,
 };
 
 export const usersReducer = (state = defaultState, action) => {
@@ -17,6 +18,7 @@ export const usersReducer = (state = defaultState, action) => {
         totalCount: action.payload.public_repos,
         isSearch: true,
         isNotFound: false,
+        isFetching: true,
       };
 
     case ACTIONS.SET_USERNAME:
@@ -35,6 +37,12 @@ export const usersReducer = (state = defaultState, action) => {
       return {
         ...state,
         isNotFound: action.payload,
+      };
+
+    case ACTIONS.SET_IS_FETCHING:
+      return {
+        ...state,
+        isFetching: action.payload,
       };
 
     default:

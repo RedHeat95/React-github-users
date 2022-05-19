@@ -26,21 +26,15 @@ export const setLastItem = (number) => ({
   payload: number,
 });
 
-const setIsFetching = (bool) => ({
-  type: ACTIONS.SET_IS_FETCHING,
-  payload: bool,
-});
-
 export const getRepos = (username, perPage, pageNumber) => {
   return async (dispatch) => {
     try {
-      dispatch(setIsFetching(false));
       const response = await axios.get(
         `https://api.github.com/users/${username}/repos?per_page=${perPage}&page=${pageNumber}`,
         {
           method: "GET",
           headers: {
-            Authorization: "token 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",
+            Authorization: "token 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",
           },
         }
       );

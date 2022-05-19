@@ -21,17 +21,23 @@ const setIsNotFound = (bool) => ({
   payload: bool,
 });
 
+const setIsFetching = (bool) => ({
+  type: ACTIONS.SET_IS_FETCHING,
+  payload: bool,
+});
+
 export const getUsers = (username) => {
   return async (dispatch) => {
     try {
-      dispatch(setIsSearch(false));
+      dispatch(setIsSearch(true));
       dispatch(setIsNotFound(false));
+      dispatch(setIsFetching(false));
       const response = await axios.get(
         `https://api.github.com/users/${username}`,
         {
           method: "GET",
           headers: {
-            Authorization: "token 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",
+            Authorization: "token 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",
           },
         }
       );
@@ -39,6 +45,7 @@ export const getUsers = (username) => {
     } catch (e) {
       dispatch(setIsSearch(true));
       dispatch(setIsNotFound(true));
+      dispatch(setIsFetching(true));
     }
   };
 };
