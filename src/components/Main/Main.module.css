@@ -18,16 +18,12 @@
 
 @media (max-width: 768px) {
   .mainWrraper {
-    display: flex;
-    flex: 1;
-    padding: 2.5rem 0;
     max-height: 100%;
+    height: min-content;
+    padding: 2.5rem 1rem 1rem 1rem;
   }
 
   .mainBlock {
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    flex: 1;
   }
 }

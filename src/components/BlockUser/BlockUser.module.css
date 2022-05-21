@@ -29,7 +29,7 @@
 
 .userInfo {
   display: flex;
-  margin: 1.5rem 0 3rem 0;
+  margin-top: 1.5rem;
 }
 
 .infoText {
@@ -47,6 +47,17 @@
 
 @media (max-width: 768px) {
   .blockuser {
+    text-align: center;
     padding: 0;
+    margin-bottom: 3rem;
+  }
+
+  .userInfo {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .infoText:first-child {
+    margin: 0 0 0.5rem 0;
   }
 }

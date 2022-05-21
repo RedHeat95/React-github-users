@@ -8,7 +8,7 @@
 .title {
   font-style: normal;
   font-weight: 600;
-  font-size: 32px;
+  font-size: 2rem;
   line-height: 130%;
   color: #000000;
   margin-bottom: 1.8rem;
@@ -20,6 +20,12 @@
 
 @media (max-width: 768px) {
   .blockRepository {
+    max-width: 17.5rem;
+    width: 100%;
     padding: 0;
+  }
+
+  .title {
+    max-width: 15rem;
   }
 }
