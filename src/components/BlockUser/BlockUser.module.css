@@ -47,9 +47,6 @@
 
 @media (max-width: 768px) {
   .blockuser {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 0;
   }
 }
