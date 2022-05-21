@@ -1,6 +1,7 @@
 <h1 align="center">Search GitHub Users Test</h1>
 
-<h2 align="center"><a  href="https://search-github-users-test.netlify.app">On Netlify</a></h2>
+<h2 align="center"><a  href="https://search-github-users-test.netlify.app"
+target="_blank" rel="noreferrer">On Netlify</a></h2>
 
 ## Description
 
