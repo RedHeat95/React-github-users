@@ -7,8 +7,8 @@
 }
 
 .preloader {
-  border: 16px solid #f3f3f3;
-  border-top: 16px solid #0064eb;
+  border: 1rem solid #f3f3f3;
+  border-top: 1rem solid #0064eb;
   border-radius: 50%;
   width: 7.5rem;
   height: 7.5rem;

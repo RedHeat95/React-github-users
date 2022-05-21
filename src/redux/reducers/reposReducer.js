@@ -2,8 +2,8 @@ import { ACTIONS } from "../constants";
 
 const defaultState = {
   items: [],
-  perPage: 4,
   pageNumber: 1,
+  perPage: 4,
   pageCount: 0,
   firstItem: 0,
   lastItem: 0,

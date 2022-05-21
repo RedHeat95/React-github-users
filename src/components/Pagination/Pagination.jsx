@@ -44,6 +44,7 @@ export const Pagination = () => {
       <p className={styles.paginationText}>
         {firstItem} - {lastItem} of {totalCount} items
       </p>
+
       <ReactPaginate
         containerClassName={styles.paginationContainer}
         previousClassName={styles.paginationPrevious}

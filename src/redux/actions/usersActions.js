@@ -32,9 +32,11 @@ export const getUsers = (username) => {
       dispatch(setIsSearch(true));
       dispatch(setIsNotFound(false));
       dispatch(setIsFetching(false));
+
       const response = await axios.get(
         `https://api.github.com/users/${username}`
       );
+
       dispatch(setUsers(response.data));
     } catch (e) {
       dispatch(setIsSearch(true));

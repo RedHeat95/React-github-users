@@ -27,7 +27,6 @@ export const BlockRepository = () => {
                 <CardReposiroty repo={repo} key={repo.id} />
               ))}
             </div>
-
             <Pagination />
           </div>
         </>

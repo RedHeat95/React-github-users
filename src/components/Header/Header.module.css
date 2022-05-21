@@ -32,8 +32,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  outline: none;
   border: none;
+  outline: none;
   color: #000000;
 }
 

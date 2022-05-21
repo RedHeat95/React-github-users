@@ -10,8 +10,8 @@ import { Preloader } from "../Preloader/Preloader";
 
 export const Main = () => {
   const isSearch = useSelector((state) => state.users.isSearch);
-  const isNotFound = useSelector((state) => state.users.isNotFound);
   const isFetching = useSelector((state) => state.users.isFetching);
+  const isNotFound = useSelector((state) => state.users.isNotFound);
 
   return (
     <div className={styles.main}>

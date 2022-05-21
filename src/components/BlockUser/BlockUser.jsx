@@ -34,6 +34,7 @@ export const BlockUser = () => {
           {users.login}
         </a>
       </p>
+
       <div className={styles.userInfo}>
         <p className={styles.infoText}>
           <img

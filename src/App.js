@@ -1,7 +1,8 @@
 import { Provider } from "react-redux";
 
-import "./App.css";
 import { store } from "./redux/store";
+
+import "./App.css";
 import { Header } from "./components/Header/Header";
 import { Main } from "./components/Main/Main";
 

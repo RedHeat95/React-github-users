@@ -12,7 +12,7 @@ Enter "username" and press "Enter", after which information about the user and h
 If a user with such username does not exist or does not have repositories, a corresponding message will be displayed on the screen.
 Click on username or repository name will open a new corresponding tab on GitHub.
 
-## About the project.
+## About the project
 
 ### Used
 
