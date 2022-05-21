@@ -49,7 +49,6 @@
   .pagination {
     flex-direction: column;
     align-items: flex-end;
-    max-width: 20rem;
     width: 100%;
   }
 

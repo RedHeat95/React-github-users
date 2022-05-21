@@ -24,10 +24,3 @@
   color: #000000;
   margin-top: 1rem;
 }
-
-@media (max-width: 768px) {
-  .cardReposiroty {
-    max-width: 17.5rem;
-    width: 100%;
-  }
-}

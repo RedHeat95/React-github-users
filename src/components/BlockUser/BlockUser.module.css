@@ -47,12 +47,14 @@
 
 @media (max-width: 768px) {
   .blockuser {
+    text-align: center;
     padding: 0;
     margin-bottom: 3rem;
   }
 
   .userInfo {
     flex-direction: column;
+    align-items: center;
   }
 
   .infoText:first-child {
