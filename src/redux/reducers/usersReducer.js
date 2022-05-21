@@ -2,8 +2,8 @@ import { ACTIONS } from "../constants";
 
 const defaultState = {
   items: [],
-  username: "",
   totalCount: 0,
+  username: "",
   isSearch: false,
   isNotFound: false,
   isFetching: false,

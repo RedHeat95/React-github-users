@@ -15,7 +15,6 @@ export const Header = () => {
   const dispatch = useDispatch();
   const perPage = useSelector((state) => state.repos.perPage);
   const pageNumber = useSelector((state) => state.repos.pageNumber);
-
   const [searchValue, setSearchValue] = useState("");
 
   const inputOnChange = (e) => {
@@ -48,6 +47,7 @@ export const Header = () => {
             src="./assets/images/searchInput.svg"
             alt="search"
           />
+
           <input
             className={styles.searchInput}
             value={searchValue}
