@@ -60,6 +60,7 @@ export const Pagination = () => {
         pageCount={pageCount}
         marginPagesDisplayed="1"
         onPageChange={handlePageClick}
+        disableInitialCallback={true}
       />
     </div>
   );
