@@ -47,12 +47,23 @@
 
 @media (max-width: 768px) {
   .pagination {
-    display: flex;
     flex-direction: column;
     align-items: flex-end;
     max-width: 20rem;
+    width: 100%;
   }
+
   .paginationText {
     margin: 0 0.8rem 0.5rem 0;
+  }
+
+  .paginationContainer {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 14rem;
+  }
+
+  .paginationContainer > li {
+    margin-bottom: 0.5rem;
   }
 }

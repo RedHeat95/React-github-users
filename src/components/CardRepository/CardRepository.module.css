@@ -8,7 +8,7 @@
 .cardTitle {
   font-style: normal;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 29px;
   text-decoration: none;
   word-wrap: break-word;
@@ -18,10 +18,9 @@
 .cardText {
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 19px;
   word-wrap: break-word;
-
   color: #000000;
   margin-top: 1rem;
 }
